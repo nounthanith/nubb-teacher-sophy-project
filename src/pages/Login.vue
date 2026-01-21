@@ -50,6 +50,7 @@ const password = ref('');
 const message = ref('');
 
 const handleLogin = () => {
+  // 1. Create the token
   const randomToken = btoa(email.value + Date.now());
 
   const userData = {
@@ -61,10 +62,10 @@ const handleLogin = () => {
 
   message.value = "Login successful!";
 
-  if(message.value === "Login successful") window.location.reload();
-
-  setTimeout(() => {
-    router.push('/dashboard');
-  }, 1000);
+  if (message.value === "Login successful!") {
+    router.push("/dashboard").then(() => {
+      window.location.reload();
+    });
+  }
 };
 </script>

@@ -1,15 +1,16 @@
 import { reactive } from 'vue';
 
 export const authState = reactive({
-    isAuthenticated: !!localStorage.getItem('token'),
+    // Check localStorage immediately so refresh doesn't log you out
+    isAuthenticated: !!localStorage.getItem('user_session'),
 
     login(token) {
-        localStorage.setItem('token', token);
-        this.isAuthenticated = true;
+        localStorage.setItem('user_session', token);
+        this.isAuthenticated = true; // Instantly switches App.vue
     },
 
     logout() {
-        localStorage.removeItem('token');
-        this.isAuthenticated = false;
+        localStorage.removeItem('user_session');
+        this.isAuthenticated = false; // Instantly switches App.vue
     }
 });
