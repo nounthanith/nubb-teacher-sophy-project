@@ -57,20 +57,20 @@ const resetForm = () => {
 
       <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
         <h2 class="text-lg font-bold mb-4 flex items-center gap-2 text-slate-700">
-          <span class="p-1.5 bg-blue-100 rounded text-blue-600">📤</span> Sender Info
+          <span class="p-1.5 bg-blue-100 rounded text-blue-600">📤</span> ព័តមានអ្នកផ្ញើរ
         </h2>
-        <InputGroup label="Name" v-model="order.sender.name" placeholder="Sir Name" />
-        <InputGroup label="Phone" v-model="order.sender.phone" placeholder="012..." />
-        <InputGroup label="Address" v-model="order.sender.address" placeholder="Phnom Penh..." />
+        <InputGroup label="ព្រះនាមអ្នកផ្ញើរ" v-model="order.sender.name" placeholder="ឈ្មោះអ្នកផ្ញើរ" />
+        <InputGroup label="លេខទូរស័ព្ទផ្ញើរ" v-model="order.sender.phone" placeholder="012..." />
+        <InputGroup label="ទីតាំងផ្ញើរ" v-model="order.sender.address" placeholder="ភ្នំពេញ..." />
       </div>
 
       <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
         <h2 class="text-lg font-bold mb-4 flex items-center gap-2 text-slate-700">
-          <span class="p-1.5 bg-green-100 rounded text-green-600">📥</span> Recipient Info
+          <span class="p-1.5 bg-green-100 rounded text-green-600">📥</span> ព័តមានអ្នកួទទួល
         </h2>
-        <InputGroup label="Name" v-model="order.recipient.name" placeholder="Client Name" />
-        <InputGroup label="Phone" v-model="order.recipient.phone" placeholder="098..." />
-        <InputGroup label="Address" v-model="order.recipient.address" placeholder="Siem Reap..." />
+        <InputGroup label="ព្រះនាមអ្នកទទួល" v-model="order.recipient.name" placeholder="ឈ្មោះអ្នកទទួល" />
+        <InputGroup label="លេខទូរស័ព្ទអ្នកទទួល" v-model="order.recipient.phone" placeholder="098..." />
+        <InputGroup label="ទីតាំងទទួល" v-model="order.recipient.address" placeholder="បាត់ដំបង..." />
       </div>
 
       <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">

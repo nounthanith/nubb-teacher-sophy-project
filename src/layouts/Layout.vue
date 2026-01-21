@@ -31,7 +31,13 @@ onMounted(() => {
 });
 
 const handleLogout = () => {
-  localStorage.removeItem('user_session');
-  router.push('/');
+  const response = confirm("Sir, are you sure you want to logout?");
+
+  if (response) {
+    localStorage.removeItem('user_session');
+    router.push('/');
+  } else {
+    console.log("Logout cancelled by user");
+  }
 };
 </script>

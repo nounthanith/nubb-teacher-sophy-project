@@ -67,9 +67,7 @@ const deleteOrder = (index) => {
 
 // EDIT FUNCTION
 const editOrder = (order) => {
-  // We save the order we want to edit in a temporary "edit_mode" storage
   localStorage.setItem('edit_order_data', JSON.stringify(order));
-  // Redirect to the Order form page
   router.push('/orders');
 };
 </script>

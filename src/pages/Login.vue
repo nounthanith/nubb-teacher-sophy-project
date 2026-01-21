@@ -1,14 +1,18 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-100">
-    <div class="bg-white p-8 rounded-lg shadow-md w-96">
-      <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Login</h2>
+  <div class="fixed inset-0 z-[100] bg-slate-100 flex items-center justify-center font-kantum p-4">
+
+    <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md border border-slate-200">
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-slate-800">NITH LOGISTIC</h1>
+        <p class="text-slate-500 mt-2">Please sign in to your account</p>
+      </div>
 
       <form @submit.prevent="handleLogin">
         <div class="space-y-4 mb-6">
           <Input
               label="Email Address"
               type="email"
-              placeholder="Enter your email"
+              placeholder="tong@gmail.com"
               v-model="email"
           />
 
@@ -22,13 +26,13 @@
 
         <button
             type="submit"
-            class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200"
+            class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-blue-700 transition-all active:scale-95 shadow-lg shadow-blue-200"
         >
           Sign In
         </button>
       </form>
 
-      <p v-if="message" class="mt-4 text-center text-sm text-green-600 font-medium">
+      <p v-if="message" class="mt-4 text-center text-sm text-green-600 font-bold">
         {{ message }}
       </p>
     </div>

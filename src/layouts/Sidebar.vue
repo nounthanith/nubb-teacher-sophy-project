@@ -16,7 +16,7 @@
           class="flex items-center p-3 rounded-lg hover:bg-slate-800 transition group"
           active-class="bg-blue-600 text-white"
       >
-        <span class="text-xl min-w-[24px] flex justify-center">{{ item.icon }}</span>
+        <span class="text-xl min-w-6 flex justify-center">{{ item.icon }}</span>
         <span
             v-if="isOpen"
             class="ml-4 font-medium transition-opacity duration-300 whitespace-nowrap"
