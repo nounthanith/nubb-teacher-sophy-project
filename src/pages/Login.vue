@@ -61,6 +61,8 @@ const handleLogin = () => {
 
   message.value = "Login successful!";
 
+  if(message.value === "Login successful") window.location.reload();
+
   setTimeout(() => {
     router.push('/dashboard');
   }, 1000);
