@@ -6,7 +6,7 @@
       <Navbar :email="userEmail" @toggleSidebar="isSidebarOpen = !isSidebarOpen" />
 
       <main class="flex-1 overflow-y-auto p-6">
-        <slot />
+        <RouterView/>
       </main>
     </div>
   </div>

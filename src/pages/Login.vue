@@ -4,31 +4,25 @@
       <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Login</h2>
 
       <form @submit.prevent="handleLogin">
-        <div class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
-          <input
-              v-model="email"
+        <div class="space-y-4 mb-6">
+          <Input
+              label="Email Address"
               type="email"
-              required
-              placeholder="email@example.com"
-              class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your email"
+              v-model="email"
           />
-        </div>
 
-        <div class="mb-6">
-          <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
-          <input
-              v-model="password"
+          <Input
+              label="Password"
               type="password"
-              required
-              placeholder="********"
-              class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="••••••••"
+              v-model="password"
           />
         </div>
 
         <button
             type="submit"
-            class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200"
+            class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200"
         >
           Sign In
         </button>
@@ -43,32 +37,28 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import Input from "../components/Input.vue";
 
+const router = useRouter();
 const email = ref('');
 const password = ref('');
 const message = ref('');
 
 const handleLogin = () => {
-  // 1. Generate a mock JWT-like token
   const randomToken = btoa(email.value + Date.now());
 
-  // 2. Create the user object
   const userData = {
     email: email.value,
     token: `mock_token_${randomToken}`,
-    loginTime: new Date().toISOString()
   };
 
-  // 3. Save to localStorage
   localStorage.setItem('user_session', JSON.stringify(userData));
 
-  message.value = "Login successful";
+  message.value = "Login successful!";
 
-  if (message.value === "Login successful") window.location.reload();
-
-  email.value = '';
-  password.value = '';
-
-  console.log("Saved to LocalStorage:", userData);
+  setTimeout(() => {
+    router.push('/dashboard');
+  }, 1000);
 };
 </script>
