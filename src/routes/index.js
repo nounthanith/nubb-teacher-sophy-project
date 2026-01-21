@@ -2,7 +2,6 @@ import { createWebHistory, createRouter } from 'vue-router'
 import Login from "../pages/Login.vue";
 import Dashboard from "../pages/Dashboard.vue";
 import Order from "../pages/Order.vue";
-import Category from "../pages/Category.vue";
 import Users from "../pages/Users.vue";
 
 const router = createRouter({
@@ -11,7 +10,6 @@ const router = createRouter({
         { path: "/", name: "Login", component: Login },
         { path: "/dashboard", name: "Dashboard", component: Dashboard },
         { path: "/order", name: "Order", component: Order },
-        { path: "/category", name: "Categories", component: Category },
         { path: "/users", name: "Categories", component: Users},
     ],
 })

@@ -4,7 +4,7 @@
       class="bg-slate-900 text-slate-300 transition-all duration-300 flex flex-col shadow-xl border-r border-slate-800 h-screen sticky top-0"
   >
     <div class="h-16 flex items-center px-6 bg-slate-950 border-b border-slate-800 overflow-hidden shrink-0">
-
+      <span class="text-blue-400 text-2xl font-bold">▼</span>
       <span v-if="isOpen" class="ml-3 font-bold text-white tracking-widest uppercase">Nith Logistic</span>
     </div>
 
@@ -31,7 +31,7 @@
           @click="$emit('logout')"
           class="w-full flex items-center p-3 rounded-lg hover:bg-red-500 hover:text-white transition group"
       >
-        <span class="text-xl min-w-[24px] flex justify-center">🚪</span>
+        <span class="text-xl min-w-6 flex justify-center">🚪</span>
         <span v-if="isOpen" class="ml-4 font-medium whitespace-nowrap">Logout</span>
       </button>
     </div>
@@ -45,7 +45,6 @@ defineEmits(['logout']);
 const navItems = [
   { path: "/dashboard", name: "ផ្ទាំងដើម", icon: "🏠" },
   { path: "/order", name: "កញ្ចប់ឥវ៉ាន់", icon: "🛒" },
-  { path: "/category", name: "ប្រភេទឥវ៉ាន់", icon: "📦" },
   { path: "/users", name: "បុគ្គលិក", icon: "👤" },
 ]
 </script>
