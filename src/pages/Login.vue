@@ -3,7 +3,7 @@
 
     <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md border border-slate-200">
       <div class="text-center mb-8">
-        <h1 class="text-3xl font-bold text-slate-800">NITH LOGISTIC</h1>
+        <h1 class="text-3xl font-bold uppercase text-slate-800">LOGISTIC Solution</h1>
         <p class="text-slate-500 mt-2">Please sign in to your account</p>
       </div>
 
@@ -12,7 +12,7 @@
           <Input
               label="Email Address"
               type="email"
-              placeholder="tong@gmail.com"
+              placeholder="hahahabro@gmail.com"
               v-model="email"
           />
 
