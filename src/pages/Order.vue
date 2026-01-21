@@ -2,28 +2,22 @@
 import { ref } from 'vue';
 import InputGroup from '../components/Input.vue';
 
-// Order State
 const order = ref({
-  id: Date.now(), // Unique ID
+  id: Date.now(),
   date: new Date().toISOString().split('T')[0],
   packageType: 'Box',
   weight: '',
   price: '',
-  // Sender Object
   sender: { name: '', phone: '', address: '' },
-  // Recipient Object
   recipient: { name: '', phone: '', address: '' },
   status: 'Pending'
 });
 
 const saveOrder = () => {
-  // 1. Get existing orders from localStorage or start with empty array
   const existingOrders = JSON.parse(localStorage.getItem('delivery_orders') || '[]');
 
-  // 2. Add current order to the list
   existingOrders.push(order.value);
 
-  // 3. Save back to localStorage
   localStorage.setItem('delivery_orders', JSON.stringify(existingOrders));
 
   alert("Order Saved to LocalStorage, Sir!");
@@ -42,6 +36,14 @@ const resetForm = () => {
     status: 'Pending'
   };
 };
+
+const packageOptions = ref([
+  { id: 1, name: 'កេសឬប្រអប់', enName: 'Box', icon: '📦' },
+  { id: 2, name: 'ស្រោមសំបុត្រ', enName: 'Envelope', icon: '✉️' },
+  { id: 3, name: 'អីវ៉ាន់ងាយបែក', enName: 'Fragile', icon: '🍷' },
+  { id: 4, name: 'ឯកសារ', enName: 'Document', icon: '📄' },
+  { id: 5, name: 'គ្រឿងអេឡិចត្រូនិច', enName: 'Electronic', icon: '💻' }
+]);
 </script>
 
 <template>
@@ -75,25 +77,29 @@ const resetForm = () => {
 
       <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
         <h2 class="text-lg font-bold mb-4 flex items-center gap-2 text-slate-700">
-          <span class="p-1.5 bg-orange-100 rounded text-orange-600">📦</span> Package Info
+          <span class="p-1.5 bg-orange-100 rounded text-orange-600">📦</span> ព័តមានរបស់ឥវ៉ាន់
         </h2>
 
         <div class="mb-4">
-          <label class="text-sm font-semibold text-gray-700">Package Type</label>
-          <select v-model="order.packageType" class="w-full mt-1.5 p-2.5 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500">
-            <option>Box</option>
-            <option>Envelope</option>
-            <option>Electronic</option>
-            <option>Fragile</option>
-          </select>
+          <label class="text-sm font-semibold text-gray-700">ប្រភេទឥតវ៉ាន់</label>
+          <div class="mb-4">
+            <select
+                v-model="order.packageType"
+                class="w-full mt-1.5 p-2.5 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option v-for="item in packageOptions" :key="item" :value="item">
+                {{item.icon}} {{ item.name }} / {{item.enName}}
+              </option>
+            </select>
+          </div>
         </div>
 
         <div class="grid grid-cols-2 gap-4">
-          <InputGroup label="Weight (kg)" v-model="order.weight" placeholder="0.5" />
-          <InputGroup label="Price ($)" v-model="order.price" placeholder="2.50" />
+          <InputGroup label="ទម្ងន់ (kg)" v-model="order.weight" placeholder="0.5" />
+          <InputGroup label="តម្លៃ ($)" v-model="order.price" placeholder="2.50" />
         </div>
 
-        <InputGroup label="Delivery Date" type="date" v-model="order.date" />
+        <InputGroup label="ថ្ងៃដឹកជញ្ជូន" type="date" v-model="order.date" />
       </div>
 
     </div>

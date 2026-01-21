@@ -5,7 +5,7 @@
   >
     <div class="h-16 flex items-center px-6 bg-slate-950 border-b border-slate-800 overflow-hidden shrink-0">
       <span class="text-blue-400 text-2xl font-bold">▼</span>
-      <span v-if="isOpen" class="ml-3 font-bold text-white tracking-widest uppercase">Nith Logistic</span>
+      <span v-if="isOpen" class="ml-3 font-bold text-white tracking-widest uppercase">Logistic solution</span>
     </div>
 
     <nav class="flex-1 py-4 px-3 space-y-1 overflow-y-auto overflow-x-hidden">
@@ -44,7 +44,7 @@ defineEmits(['logout']);
 
 const navItems = [
   { path: "/dashboard", name: "ផ្ទាំងដើម", icon: "🏠" },
-  { path: "/order", name: "កញ្ចប់ឥវ៉ាន់", icon: "🛒" },
+  { path: "/order", name: "បង្កើតកញ្ចប់ឥវ៉ាន់", icon: "🛒" },
   { path: "/users", name: "បុគ្គលិក", icon: "👤" },
 ]
 </script>
