@@ -44,7 +44,7 @@ defineEmits(['logout']);
 
 const navItems = [
   { path: "/dashboard", name: "ផ្ទាំងដើម", icon: "🏠" },
-  { path: "/order", name: "បង្កើតកញ្ចប់ឥវ៉ាន់", icon: "🛒" },
+  { path: "/order", name: "បង្កើតបញ្ញើ", icon: "🛒" },
   { path: "/users", name: "បុគ្គលិក", icon: "👤" },
 ]
 </script>

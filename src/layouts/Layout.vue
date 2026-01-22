@@ -17,6 +17,7 @@ import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import Sidebar from "./Sidebar.vue";
 import Navbar from './Navbar.vue';
+import {toast} from "vue3-toastify";
 
 const router = useRouter();
 const isSidebarOpen = ref(true);
@@ -35,9 +36,15 @@ const handleLogout = () => {
 
   if (response) {
     localStorage.removeItem('user_session');
-    router.push('/');
-  } else {
-    console.log("Logout cancelled by user");
+
+    toast.success("Logout successful!");
+
+    setTimeout(() => {
+      router.push('/').then(() => {
+        window.location.reload();
+      });
+    }, 2000);
+
   }
 };
 </script>

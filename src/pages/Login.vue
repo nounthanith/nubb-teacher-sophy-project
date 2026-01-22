@@ -4,13 +4,12 @@
     <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md border border-slate-200">
       <div class="text-center mb-8">
         <h1 class="text-3xl font-bold uppercase text-slate-800">LOGISTIC Solution</h1>
-        <p class="text-slate-500 mt-2">Please sign in to your account</p>
       </div>
 
       <form @submit.prevent="handleLogin">
         <div class="space-y-4 mb-6">
           <Input
-              label="Email Address"
+              label="Email"
               type="email"
               placeholder="hahahabro@gmail.com"
               v-model="email"
@@ -31,10 +30,6 @@
           Sign In
         </button>
       </form>
-
-      <p v-if="message" class="mt-4 text-center text-sm text-green-600 font-bold">
-        {{ message }}
-      </p>
     </div>
   </div>
 </template>
@@ -44,6 +39,7 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import Input from "../components/Input.vue";
 import {toast} from "vue3-toastify";
+import 'vue3-toastify/dist/index.css';
 
 const router = useRouter();
 const email = ref('');
@@ -68,9 +64,13 @@ const handleLogin = () => {
   message.value = "Login successful!";
 
   if (message.value === "Login successful!") {
-    router.push("/dashboard").then(() => {
-      window.location.reload();
-    });
+    toast.success("Login successful!");
+
+    setTimeout(() => {
+      router.push("/dashboard").then(() => {
+        window.location.reload();
+      });
+    }, 2000);
   }
 };
 </script>
