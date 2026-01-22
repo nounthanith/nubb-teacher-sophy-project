@@ -85,6 +85,8 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 const allOrders = ref([]);
 const router = useRouter();
@@ -100,18 +102,18 @@ const loadOrders = () => {
 
 const updateStatus = () => {
   localStorage.setItem('delivery_orders', JSON.stringify(allOrders.value));
-  console.log("Status updated and saved, Sir!");
+  toast.success("Status update successfully!!!");
 };
 
 const deleteOrder = (index) => {
-  if (confirm("Are you sure you want to delete this order, Sir?")) {
+  const confirmDelete = confirm("តើអ្នកចង់លុបមែនទេ?");
+
+  if (confirmDelete) {
     allOrders.value.splice(index, 1);
     localStorage.setItem('delivery_orders', JSON.stringify(allOrders.value));
+
+    toast.success("លុបជោគជ័យ");
   }
 };
 
-const editOrder = (order) => {
-  localStorage.setItem('edit_order_data', JSON.stringify(order));
-  router.push('/order');
-};
 </script>

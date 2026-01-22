@@ -1,5 +1,5 @@
 <script setup>
-import { authState } from "./store/auth"; // Import our reactive store
+import { authState } from "./store/auth";
 import Layout from "./layouts/Layout.vue";
 import Login from "./pages/Login.vue";
 </script>
@@ -10,11 +10,3 @@ import Login from "./pages/Login.vue";
     <RouterView />
   </Layout>
 </template>
-
-<style>
-html, body {
-  font-family: 'Kantumruy Pro', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-</style>
