@@ -8,8 +8,8 @@
 
     <div class="flex items-center gap-3">
       <span class="text-sm font-medium text-gray-600 hidden md:block">{{ email }}</span>
-      <div class="h-9 w-9 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold text-sm">
-        {{ email.charAt(0).toUpperCase() }}
+      <div class="text-2xl cursor-pointer hover:text-3xl transition-all duration-200">
+        🌐
       </div>
     </div>
   </header>

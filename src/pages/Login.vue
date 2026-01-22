@@ -43,6 +43,7 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import Input from "../components/Input.vue";
+import {toast} from "vue3-toastify";
 
 const router = useRouter();
 const email = ref('');
@@ -50,12 +51,16 @@ const password = ref('');
 const message = ref('');
 
 const handleLogin = () => {
-  // 1. Create the token
-  const randomToken = btoa(email.value + Date.now());
+  if (!email.value || !password.value) {
+    toast.error("Please sign in to your account");
+    return;
+  }
+
+  const randomToken = (email.value + Date.now());
 
   const userData = {
     email: email.value,
-    token: `mock_token_${randomToken}`,
+    token: `whenIWasYourMen${randomToken}konKhmer`,
   };
 
   localStorage.setItem('user_session', JSON.stringify(userData));
