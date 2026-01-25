@@ -8,6 +8,7 @@
           <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">អ្នកផ្ញើរ / អ្នកទទួល</th>
           <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">ទីតាំងផ្ញើរ / ទទួល</th>
           <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">កញ្ចប់ឥវ៉ាន់</th>
+          <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">តម្លៃ</th>
           <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">ស្ថានភាព</th>
           <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">កាលបរិច្ឆេទ</th>
           <th class="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">សកម្មភាព</th>
@@ -26,7 +27,7 @@
             </div>
           </td>
 
-          <td class="px-6 py-4 text-sm text-slate-600 max-w-[200px]">
+          <td class="px-6 py-4 text-sm text-slate-600 max-w-50">
             <div class="truncate" :title="order.sender.address + ' to ' + order.recipient.address">
               {{ order.sender.address }} → {{ order.recipient.address }}
             </div>
@@ -36,6 +37,8 @@
             <span class="font-medium">{{ order.packageType?.name || order.packageType }}</span>
             <span class="text-xs text-slate-400 ml-1">({{ order.weight }}kg)</span>
           </td>
+
+          <td class="px-6 py-4 text-sm text-slate-700"><span class="bg-yellow-100 text-orange-500 font-semibold p-1.5 px-6 rounded-full">{{order.price}}$</span></td>
 
           <td class="px-6 py-4">
             <select
@@ -55,7 +58,7 @@
               <option value="Cancelled">❌ បោះបង់</option>
             </select>
           </td>
-          <td class="px-6 py-4 text-sm font-semibold" ><span class="bg-pink-200 text-pink-500 p-1.5 rounded-full">{{ order.date}}</span></td>
+          <td class="px-6 py-4 text-sm font-semibold" ><span class="bg-pink-200 text-pink-500 p-1.5 px-6 rounded-full">{{ order.date}}</span></td>
           <td class="px-6 py-4">
             <div class="flex justify-center items-center gap-3">
               <button @click="deleteOrder(index)" class="text-red-500 hover:text-red-700 transition" title="Delete">
@@ -105,6 +108,8 @@ const updateStatus = () => {
   toast.success("Status update successfully!!!");
 };
 
+
+// លុប Order ចេញពី Localstorage ដោយការចាប់យក index
 const deleteOrder = (index) => {
   const confirmDelete = confirm("តើអ្នកចង់លុបមែនទេ?");
 

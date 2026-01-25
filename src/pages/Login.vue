@@ -45,12 +45,12 @@ const router = useRouter();
 const email = ref('');
 const password = ref('');
 const message = ref('');
-
 const handleLogin = () => {
   if (!email.value || !password.value) {
     toast.error("Please sign in to your account");
     return;
   }
+
 
   const randomToken = (email.value + Date.now());
 
